@@ -76,9 +76,6 @@ RSpec.configure do |config|
   # Include devise test helpers in controller specs
   config.include Devise::TestHelpers, type: :controller
 
-  # Include mongoid matches in model specs
-  config.include Mongoid::Matchers, type: :model
-
   config.include Capybara::DSL
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
