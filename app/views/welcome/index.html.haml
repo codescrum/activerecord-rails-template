@@ -6,12 +6,18 @@
         .inner
           %h3.masthead-brand= t(".generic")
           %ul.nav.masthead-nav
-            %li.active
-              %a{:href => "#"}= t(".home")
-            %li
-              %a{:href => "#"}= t(".about_us")
-            %li
-              %a{:href => "#"}= t(".contact")
+            - if user_signed_in?
+              %li
+                = "You are logged in as #{current_user.email}"
+              %li.active
+                = link_to t('navigation.logout'), destroy_user_session_path, :method=>'delete'
+            - else
+              %li.active
+                %a{:href => "#"}= t(".home")
+              %li
+                %a{:href => "#"}= t(".about_us")
+              %li
+                %a{:href => "#"}= t(".contact")
       .inner.cover
         %h1.cover-heading= t(".demo_application")
         %p.lead= t(".demo_app_description")
