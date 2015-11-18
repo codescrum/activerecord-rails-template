@@ -29,14 +29,15 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'simple_form'
 
 gem 'awesome_print', git: 'https://github.com/michaeldv/awesome_print'
-gem "mongoid", "~> 4.0.0"
 gem 'devise'
-gem 'mongoid_search'
-gem 'will_paginate_mongoid'
+gem 'will_paginate'
 gem 'cancancan', '~> 1.10.1'
 gem 'secure_headers'
 gem 'autoprefixer-rails'
 
+# Comment/Uncomment depending on what database your going to use
+#gem 'mysql2'
+gem 'pg'
 
 group :development do
   gem 'guard'
@@ -73,9 +74,6 @@ group :development, :test do
 end
 
 group :test do
-  # [ERROR] The 'truncation' strategy does not exist [...] Available strategies: truncation
-  # As a temporary workaround, including mongoid-tree in your Gemfile solves it for now.
-  gem 'mongoid-tree', :require => 'mongoid/tree'
   gem 'simplecov'
   gem 'simplecov-html'
   gem 'vcr'
@@ -90,7 +88,6 @@ group :test do
   gem 'poltergeist'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
-  gem 'mongoid-rspec'
   gem 'ammeter'
 end
 
