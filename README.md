@@ -10,7 +10,7 @@ The following versions are very important to keep in mind. We've done this becau
 
   - Rails 4.2.2
 
-  - Mongoid 4.0.2
+  - ActiveRecord (PostgreSQL 8.4 or later / MySQL 2)
 
 Also this template uses [Zeus](https://github.com/burke/zeus) which preloads your Rails app so that your normal development tasks such as console, server, generate, and specs/tests take less than one second.
 
@@ -29,9 +29,27 @@ Installing zeus (this template was tested with zeus v0.15.4)
 Copy the example files
 
 ```sh
-  $ cp config/mongoid.yml.example config/mongoid.yml
   $ cp config/secrets.yml.example config/secrets.yml
   $ cp .env.example .env
+```
+
+Depending the database type your going to use choose one between PostgreSQL:
+
+```sh
+  $ cp config/database.yml.example_postgresql config/database.yml
+```
+or MySQL:
+
+```sh
+  $ cp config/database.yml.example_mysql config/database.yml
+```
+
+Setup database
+
+```sh
+  $ rake db:create
+  $ rake db:migrate
+  $ rake db:seed
 ```
 
 Running Zeus
@@ -56,14 +74,15 @@ Running Specs
 ```sh
   heroku config:set SECRET_KEY_BASE=a25...2cefa
 ```
+* If you use PostgreSQL, you don't need to install any addon, its already included at app creation.
 
-* Install the Mongoid addon (we’ve selected the free option - MongoLab)
+* If you use MySQL Install the ClearDB addon (we’ve selected the free option)
 
 ```sh
-  heroku addons:create mongolab:sandbox
+  heroku addons:create cleardb:ignite
 ```
 
-* Uncomment the heroku deployment hack located at the end of the `config/application.rb` file
+* Uncomment the heroku deployment hack located at the end of the `config/application.rb` file and also uncomment the database config for the type you choose.
 
 ## TECH EXPLANATIONS
 
@@ -109,7 +128,7 @@ https://goo.gl/ldjc5h
 Is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware.
 
 *Browser compatibility:*
- 
+
 - IE: Edge
 - Chrome: > 25
 - Firefox: > 24
@@ -125,7 +144,7 @@ https://goo.gl/u23dit
 The Public Key Pinning Extension for HTTP (HPKP) is a security feature that tells a web client to associate a specific cryptographic public key with a certain web server to prevent MITM attacks with forged certificates.
 
 *Browser compatibility:*
-  
+
 - IE: ?
 - Chrome: > 38
 - Firefox: > 35
@@ -393,7 +412,7 @@ The below code shows the current structure for the `main.js.coffee` file. We hav
 
 ```coffee
 # app/assets/javascripts/main.js.coffee
-window.RailsFoo = 
+window.RailsFoo =
   welcome:
     setup: ->
       @sayHello()
@@ -429,11 +448,10 @@ One of the most important thing in this era is data analysis, you can get those 
 For that reason, we have created a partial folder for including all the scripts you need for monitoring your app (yes, only a partial, there is nothing magical going on here), but bear in mind that in order for the analytics scripts to do their work you must include them in all existent pages in our web application. By the way, you can find this partial in `app/views/partials/_analytics_scripts.html.haml`.
 
 But even with that, we wanted to avoid including this partial in all our views (because we could forget!), even in all our layouts, for that reason, we have applied an inheritance approach for managing our layouts, we have created a **root** layout (you can see this located in `app/views/layouts/root.html.haml`). The main idea is that you use the **root** layout as a parent for all your new layouts, this way, you can include the common structures (like the analytical scripts) inside the **root** layout and reuse them in all your child layouts, you can see an example for this implementation in `app/views/layouts/application.html.haml` and `app/views/layouts/welcome.html.haml` layouts. The way you should think about "layout inheritance" is that you just reuse as much as you can, so, same as following DRY.
-  
+
 #### RAILS PANEL ([GITHUB REPO](https://github.com/dejan/rails_panel))
 **RailsPanel** is a Chrome extension for Rails development that will end your tailing of `development.log`. It hooks with you Chrome Dev Tools so that you have all information about your Rails app requests. Provides insight to db/rendering/total times, parameter list, rendered views and more.
 
-Although this gem is more useful for `Active record` than `Mongoid` it helps you with your logging metrics.
 #### SHOG ([GITHUB REPO](https://github.com/phallguy/shog))
 
 Make your rails 4.0 log details more colorful, we think that readability is one of the most of important things in the development process, this is also the case for logs, we could use **RailsPanel** or the [request-log-analyzer](https://github.com/wvanbergen/request-log-analyzer) gem (even though this is more related with ´ActiveRecord´) but we  could also get a cleaner look at our logs in the console by using Shog! (you can configure it using its initializer located in`config/initializers/shog.rb`). Just do `rails server` as usual to see how colorful your logs are now.
@@ -462,7 +480,7 @@ We have included many useful gems and tools in order to improve both our develop
 
 ## NOTES
 
-If you want/need to migrate this template to use `ActiveRecord` instead of `MongoID` please remember to include the following (these do not support or not apply to be used with MongoID):
+If you want, you can also add this utility gems:
 
 - lol_dba
 - request-log-analyzer
@@ -474,5 +492,5 @@ Also for newer versions consider adding:
 - jazz_fingers
 - rack-attack
 
-This template was heaviliy inspired by looking into ALL the categories from [Awesome Ruby](http://awesome-ruby.com/) the last revision for this was on July 2015, preserve its freshness by having a look every now and then (e.g. each time you create an app?) :+1:.
+This template was heavily inspired by looking into ALL the categories from [Awesome Ruby](http://awesome-ruby.com/) the last revision for this was on July 2015, preserve its freshness by having a look every now and then (e.g. each time you create an app?) :+1:.
 
