@@ -64,7 +64,8 @@ group :development do
   gem 'rubocop', '~> 0.36.0', require: false
   gem 'guard-rubocop', '~> 1.2.0'
   gem 'rubycritic', '~> 2.7.0', require: false
-  gem 'guard-rubycritic', '~> 1.4.0', path: '/home/johaned/code/libs/guard-rubycritic'
+  # remove guard-rubycritic in favour of using the new version of rubycritic
+  # gem 'guard-rubycritic', '~> 1.4.0'
   gem 'brakeman-min', '~> 3.1.5', require: false
 end
 
