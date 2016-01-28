@@ -1,67 +1,71 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.3'
+# gem 'rails', '>= 5.0.0.beta1.1', '< 5.1'
+gem 'rails', '4.2.5'
+
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.1'
+gem 'sass-rails', '~> 5.0.4'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 2.7.1'
+gem 'uglifier', '~> 2.7.2'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.1'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 # Use haml
-gem 'haml'
-gem 'less-rails'
-gem 'therubyracer'
+gem 'haml', '~> 4.0.7'
+gem 'less-rails', '~> 2.7.1'
+gem 'therubyracer', '~> 0.12.2'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.0.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.2.8'
+gem 'jbuilder', '~> 2.4.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.1',          group: :doc
 #gem 'foundation-rails', '5.4.3.1'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-gem 'simple_form'
+gem 'font-awesome-rails'
+gem 'simple_form', '~> 3.2.1'
 
 gem 'awesome_print', git: 'https://github.com/michaeldv/awesome_print'
-gem 'devise'
-gem 'will_paginate'
-gem 'cancancan', '~> 1.10.1'
-gem 'secure_headers'
-gem 'autoprefixer-rails'
+gem 'devise', '~> 3.5.5'
+gem 'will_paginate', '~> 3.1.0'
+gem 'cancancan', '~> 1.13.1'
+gem 'secure_headers', '~> 2.5.0'
+gem 'autoprefixer-rails', '~> 6.3.1'
 
 # Comment/Uncomment depending on what database your going to use
 #gem 'mysql2'
-gem 'pg'
+gem 'pg', '~> 0.18.2'
 
 group :development do
-  gem 'guard'
-  gem 'haml-rails' # only in dev, because haml-rails adds the generators
-  gem 'quiet_assets'
+  gem 'guard', '~> 2.13.0'
+  gem 'haml-rails', '~> 0.9.0' # only in dev, because haml-rails adds the generators
+  gem 'quiet_assets', '~> 1.1.0'
   gem 'rails_layout'
-  gem 'bullet'
+  gem 'bullet', '~> 5.0.0'
   gem 'meta_request'
-  gem 'shog'
+  gem 'shog', '~> 0.1.6'
   # For supporting flamegraph without errors
   # see here: https://github.com/SamSaffron/flamegraph/blob/master/lib/flamegraph.rb#L5
-  gem 'stackprof'
-  gem 'rack-mini-profiler', require: false
-  gem 'flamegraph'
+  gem 'stackprof', '~> 0.2.8'
+  gem 'rack-mini-profiler', '~> 0.9.8', require: false
+  gem 'flamegraph', '~> 0.1.0'
   # gems for inspecting code qualitty
-  gem 'i18n-tasks', '~> 0.7.12'
-  gem 'rails_best_practices', require: false
-  gem 'inch', require: false
-  gem 'guard-inch'
-  gem 'rubocop', require: false
-  gem 'guard-rubocop'
-  gem 'rubycritic', require: false
-  gem 'guard-rubycritic'
-  gem 'brakeman-min', require: false
+  gem 'i18n-tasks', '~> 0.9.2'
+  gem 'rails_best_practices', '~> 1.15.7', require: false
+  gem 'inch', '~> 0.7.0', require: false
+  gem 'guard-inch', '~> 0.2.0'
+  gem 'rubocop', '~> 0.36.0', require: false
+  gem 'guard-rubocop', '~> 1.2.0'
+  gem 'rubycritic', '~> 2.7.0', require: false
+  gem 'guard-rubycritic', '~> 1.4.0', path: '/home/johaned/code/libs/guard-rubycritic'
+  gem 'brakeman-min', '~> 3.1.5', require: false
 end
 
 group :development, :test do
@@ -70,38 +74,29 @@ group :development, :test do
   # then list dotenv-rails in the Gemfile before those other gems and require dotenv/rails-now.
   # gem 'dotenv-rails', :require => 'dotenv/rails-now'
   # gem 'gem-that-requires-env-variables'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.1.0'
 end
 
 group :test do
-  gem 'simplecov'
-  gem 'simplecov-html'
-  gem 'vcr'
-  gem 'webmock'
-  gem 'faker'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails', '~> 3.2.1'
-  gem 'rspec-support', '~> 3.2.2'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'shoulda-matchers'
-  gem 'poltergeist'
-  gem 'capybara-screenshot'
-  gem 'database_cleaner'
-  gem 'ammeter'
+  gem 'simplecov', '~> 0.11.1'
+  gem 'simplecov-html', '~> 0.10.0'
+  gem 'vcr', '~> 3.0.1'
+  gem 'webmock', '~> 1.22.6'
+  gem 'faker', '~> 1.6.1'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'rspec-rails', '~> 3.4.1'
+  gem 'rspec-support', '~> 3.4.1'
+  gem 'capybara', '~> 2.6.2'
+  gem 'launchy', '~> 2.4.3'
+  gem 'shoulda-matchers', '~> 3.1.1'
+  gem 'poltergeist', '~> 1.8.1'
+  gem 'capybara-screenshot', '~> 1.0.11'
+  gem 'database_cleaner', '~> 1.5.1'
+  gem 'ammeter', '~> 1.1.3'
 end
 
 group :production do
   gem 'rails_12factor'
-  gem 'newrelic_rpm'
-  gem 'unicorn'
+  gem 'newrelic_rpm', '~> 3.14.2.312'
+  gem 'unicorn', '~> 5.0.1'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development

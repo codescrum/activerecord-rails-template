@@ -6,4 +6,5 @@
  *= require ./bootstrap_and_overrides
  *= require_tree ./common
  *= require ./main/index
+ *= require font-awesome
 */
