@@ -82,7 +82,7 @@ Running Specs
   heroku addons:create cleardb:ignite
 ```
 
-* Uncomment the heroku deployment hack located at the end of the `config/application.rb` file and also uncomment the database config for the type you choose.
+* Uncomment the heroku deployment hack located at the end of the `config/boot.rb` file and also uncomment the database config for the type you choose.
 
 ## TECH EXPLANATIONS
 
