@@ -32,8 +32,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'font-awesome-rails'
 gem 'simple_form', '~> 3.2.1'
 
-gem 'awesome_print', git: 'https://github.com/michaeldv/awesome_print'
-gem 'devise', '~> 3.5.5'
+gem 'awesome_print', git: 'https://github.com/awesome-print/awesome_print'
+gem 'devise', '~> 3.5.5'p
 gem 'will_paginate', '~> 3.1.0'
 gem 'cancancan', '~> 1.13.1'
 gem 'secure_headers', '~> 2.5.0'
