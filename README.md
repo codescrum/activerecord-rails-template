@@ -6,9 +6,9 @@ A base template for deploying Rails applications.
 
 The following versions are very important to keep in mind. We've done this because we think that the Ruby, Rails and ORM type and versions are the ones that apply the most constraints to a starter template.
 
-  - Ruby 2.3.0
+  - Ruby 2.3.1
 
-  - Rails 4.2.5
+  - Rails 5.0.0
 
   - ActiveRecord (PostgreSQL 8.4 or later / MySQL 2)
 
@@ -476,6 +476,7 @@ We have included many useful gems and tools in order to improve both our develop
 <ul>
   <li><a href="https://github.com/johaned">Johan Tique</a></li>
   <li><a href="https://github.com/gato-omega">Miguel Diaz</a></li>
+  <li><a href="https://github.com/sflang1">Sebastian Landinez</a></li>
 </ul>
 
 ## NOTES

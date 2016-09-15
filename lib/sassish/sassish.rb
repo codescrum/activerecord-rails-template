@@ -2,6 +2,7 @@
 require File.expand_path(File.join('..', 'sassish', 'view_helper'), __FILE__)
 # Engine
 require File.expand_path(File.join('..', 'sassish', 'engine'), __FILE__)
+require "rails/generators" if Rails.env.test?
 
 # This module adapts almost all the generators associated with the stylesheet organization approach
 # described on the Readme file.
