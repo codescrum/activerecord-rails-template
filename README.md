@@ -476,6 +476,7 @@ We have included many useful gems and tools in order to improve both our develop
 <ul>
   <li><a href="https://github.com/johaned">Johan Tique</a></li>
   <li><a href="https://github.com/gato-omega">Miguel Diaz</a></li>
+  <li><a href="https://github.com/sflang1">Sebastian Landinez</a></li>
 </ul>
 
 ## NOTES
